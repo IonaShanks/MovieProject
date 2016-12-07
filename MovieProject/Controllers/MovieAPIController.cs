@@ -78,86 +78,86 @@ namespace prototypeMovieAPI.Controllers
             return Ok(screenings);
         }
 
-        // PUT: api/Movies/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutMovie(string id, Movie movie)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/Movies/5
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutMovie(string id, Movie movie)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != movie.MovieID)
-            {
-                return BadRequest();
-            }
+        //    if (id != movie.MovieID)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(movie).State = EntityState.Modified;
+        //    db.Entry(movie).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MovieExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!MovieExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST: api/Movies
-        [ResponseType(typeof(Movie))]
-        public IHttpActionResult PostMovie(Movie movie)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/Movies
+        //[ResponseType(typeof(Movie))]
+        //public IHttpActionResult PostMovie(Movie movie)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.Movies.Add(movie);
+        //    db.Movies.Add(movie);
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (MovieExists(movie.MovieID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (MovieExists(movie.MovieID))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return CreatedAtRoute("DefaultApi", new { id = movie.MovieID }, movie);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = movie.MovieID }, movie);
+        //}
 
-        // DELETE: api/Movies/5
-        [ResponseType(typeof(Movie))]
-        public IHttpActionResult DeleteMovie(string id)
-        {
-            Movie movie = db.Movies.Find(id);
-            if (movie == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Movies/5
+        //[ResponseType(typeof(Movie))]
+        //public IHttpActionResult DeleteMovie(string id)
+        //{
+        //    Movie movie = db.Movies.Find(id);
+        //    if (movie == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Movies.Remove(movie);
-            db.SaveChanges();
+        //    db.Movies.Remove(movie);
+        //    db.SaveChanges();
 
-            return Ok(movie);
-        }
+        //    return Ok(movie);
+        //}
 
         protected override void Dispose(bool disposing)
         {

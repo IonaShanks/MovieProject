@@ -105,7 +105,7 @@ namespace MovieModel
                 return "Movie is later today at: " + ShowTime;
         }
 
-       // [JsonIgnore]
+        [JsonIgnore]
         public virtual List<Cinema> Cinemas { get; set; }
 
     }

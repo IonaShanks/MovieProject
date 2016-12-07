@@ -56,87 +56,87 @@ namespace prototypeMovieAPI.Controllers
             return Ok(finds.ToList());
         }
 
-        // PUT: api/Cinemas/5
-        [Route("Cinemas/{id}")]
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutCinema(string id, Cinema cinema)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/Cinemas/5
+        //[Route("Cinemas/{id}")]
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutCinema(string id, Cinema cinema)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != cinema.CinemaID)
-            {
-                return BadRequest();
-            }
+        //    if (id != cinema.CinemaID)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(cinema).State = EntityState.Modified;
+        //    db.Entry(cinema).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CinemaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!CinemaExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST: api/Cinemas
-        [ResponseType(typeof(Cinema))]
-        public IHttpActionResult PostCinema(Cinema cinema)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/Cinemas
+        //[ResponseType(typeof(Cinema))]
+        //public IHttpActionResult PostCinema(Cinema cinema)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.Cinemas.Add(cinema);
+        //    db.Cinemas.Add(cinema);
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (CinemaExists(cinema.CinemaID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (CinemaExists(cinema.CinemaID))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return CreatedAtRoute("DefaultApi", new { id = cinema.CinemaID }, cinema);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = cinema.CinemaID }, cinema);
+        //}
 
-        // DELETE: api/Cinemas/5
-        [ResponseType(typeof(Cinema))]
-        public IHttpActionResult DeleteCinema(string id)
-        {
-            Cinema cinema = db.Cinemas.Find(id);
-            if (cinema == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Cinemas/5
+        //[ResponseType(typeof(Cinema))]
+        //public IHttpActionResult DeleteCinema(string id)
+        //{
+        //    Cinema cinema = db.Cinemas.Find(id);
+        //    if (cinema == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Cinemas.Remove(cinema);
-            db.SaveChanges();
+        //    db.Cinemas.Remove(cinema);
+        //    db.SaveChanges();
 
-            return Ok(cinema);
-        }
+        //    return Ok(cinema);
+        //}
 
         protected override void Dispose(bool disposing)
         {
