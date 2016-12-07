@@ -1126,7 +1126,7 @@ img {
 .carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 .img-rounded {
   border-radius: 6px;
@@ -6264,6 +6264,7 @@ button.close {
     backface-visibility: hidden;
     -webkit-perspective: 1000px;
     perspective: 1000px;
+    
   }
   .carousel-inner > .item.next,
   .carousel-inner > .item.active.right {
@@ -6425,9 +6426,9 @@ button.close {
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: #ffffff;
+  color: #FFFFFF;
   text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 3px #000000;
 }
 .carousel-caption .btn {
   text-shadow: none;
