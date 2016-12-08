@@ -40,6 +40,7 @@
 
 }
 <table class="table table-striped table-bordered table-hover">
+
     <tr class="success">
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -83,7 +84,7 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RunTime)
+            @Html.DisplayFor(modelItem => item.RunTime) mins
         </td>
         <td>
             @{var showtime = item.ShowTime.ToString().Remove(5);}
