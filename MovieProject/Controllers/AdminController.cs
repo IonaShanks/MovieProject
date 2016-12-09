@@ -1,15 +1,28 @@
-﻿using System.Data.Entity;
-using System.Threading.Tasks;
-using System.Net;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using MovieModel;
-using System;
-using System.Linq;
+using System.Threading.Tasks;
+using System.Net;
+using System.Data.Entity;
 
-namespace MovieMVC.Controllers
+namespace MovieProject.Controllers
 {
-    public class CinemaController : Controller
+    public class AdminController : Controller
     {
+        // GET: Admin
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Cinema()
+        {
+            return View();
+        }
+
         private MovieContext db = new MovieContext();
 
         // GET: Cinema
@@ -137,6 +150,12 @@ namespace MovieMVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        public ActionResult Movie()
+        {
+            return View();
         }
     }
 }

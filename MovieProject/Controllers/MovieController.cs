@@ -13,28 +13,7 @@ namespace MovieMVC.Controllers
     {
         private MovieContext db = new MovieContext();
 
-        // GET: Movie
-        //public async Task<ActionResult> Index()
-        //{
-        //    return View(await db.Movies.ToListAsync());
-        //}
-
-
-        //public ActionResult Index(string title)
-        //{
-        //    string searchString = title;
-        //    var movies = from m in db.Movies
-        //                 select m;
-
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        movies = movies.Where(s => s.Title.Contains(searchString));
-        //    }
-
-        //    return View(movies);
-        //}
-
-
+        // GET: Movie, filter by genre and title
         public ActionResult Index(string movieGenre, string searchString)
         {
             var GenreLst = new List<string>();
@@ -76,18 +55,18 @@ namespace MovieMVC.Controllers
             return View(Movie);
         }
 
-        // GET: Movie/Create
-        public ActionResult Create()
+        // GET: Movie/Add
+        public ActionResult Add()
         {
             return View();
         }
 
-        // POST: Movie/Create
+        // POST: Movie/Add
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "MovieID,Title,Certification,Genre,Description,RunTime")] Movie Movie)
+        public async Task<ActionResult> Add([Bind(Include = "MovieID,Title,Certification,Genre,Description,RunTime")] Movie Movie)
         {
             if (ModelState.IsValid)
             {

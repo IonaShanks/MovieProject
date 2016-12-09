@@ -8,7 +8,7 @@
 <h2>Movie Details</h2>
 
 <p>
-    @Html.ActionLink("Add New Movie", "Create")
+    @Html.ActionLink("Add New Movie", "Add")
 </p>
 @using (Html.BeginForm("Index", "Movie", FormMethod.Get))
 
@@ -89,7 +89,7 @@
         <td>
             @{var showtime = item.ShowTime.ToString().Remove(5);}
             @showtime
-            @*@Html.DisplayFor(modelItem => item.ShowTime)*@
+            
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }) 
