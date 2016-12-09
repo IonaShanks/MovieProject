@@ -18,15 +18,7 @@ namespace prototypeMovieAPI.Controllers
         [Route("Cinemas/")]
         public IHttpActionResult GetAllCinemas()
         {
-            if (db.Cinemas.Count() == 0)
-            {
-                return NotFound();
-            }
-
-            else
-            {
-                return Ok(db.Cinemas.OrderBy(l => l.Name).ToList());       // 200 OK, listings serialized in response body 
-            }
+            return Ok(db.Cinemas.OrderBy(l => l.Name).ToList());       // 200 OK, listing ordered alphabetically 
         }
 
         // GET: api/Cinemas/5
@@ -49,7 +41,7 @@ namespace prototypeMovieAPI.Controllers
         {
             string search = id.ToUpper();
             IEnumerable<Cinema> finds = db.Cinemas.Where(c => c.Name.ToUpper().Contains(search)).OrderBy(c => c.Name);
-            if (finds.Count() == 0)
+            if (finds == null)
             {
                 return NotFound();
             }
