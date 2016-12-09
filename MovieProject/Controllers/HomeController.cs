@@ -12,14 +12,6 @@ namespace MovieProject.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Cinema Listings Service";
-
-            return View();
-        }
-
         
     }
 }
