@@ -224,10 +224,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CinemaAdminController.cs" />
     <Compile Include="Controllers\CinemaController.cs" />
     <Compile Include="Controllers\CinemaAPIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MovieAdminController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\MovieAPIController.cs" />
     <Compile Include="Global.asax.cs">
@@ -300,21 +302,23 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Cinema\Add.cshtml" />
-    <Content Include="Views\Cinema\Delete.cshtml" />
     <Content Include="Views\Cinema\Details.cshtml" />
-    <Content Include="Views\Cinema\Edit.cshtml" />
     <Content Include="Views\Cinema\Index.cshtml" />
-    <Content Include="Views\Movie\Add.cshtml" />
-    <Content Include="Views\Movie\Delete.cshtml" />
     <Content Include="Views\Movie\Details.cshtml" />
-    <Content Include="Views\Movie\Edit.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Admin\Cinema.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Movie.cshtml" />
+    <Content Include="Views\CinemaAdmin\Add.cshtml" />
+    <Content Include="Views\CinemaAdmin\Delete.cshtml" />
+    <Content Include="Views\CinemaAdmin\Details.cshtml" />
+    <Content Include="Views\CinemaAdmin\Edit.cshtml" />
+    <Content Include="Views\CinemaAdmin\Index.cshtml" />
+    <Content Include="Views\MovieAdmin\Add.cshtml" />
+    <Content Include="Views\MovieAdmin\Delete.cshtml" />
+    <Content Include="Views\MovieAdmin\Details.cshtml" />
+    <Content Include="Views\MovieAdmin\Edit.cshtml" />
+    <Content Include="Views\MovieAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,7 +11,7 @@
     <h4>@Html.DisplayFor(model => model.Name):</h4>
     <br />
     <dl class="dl-horizontal">
-        
+
         <dt>
             @Html.DisplayNameFor(model => model.PhoneNumber)
         </dt>
@@ -44,14 +44,25 @@
         </dd>
 
     </dl>
-    
-     
+
+
 </div>
 <hr />
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-offset-1 col-md-1">
+        <h4>@Html.ActionLink("Edit", "Edit", new { id = Model.CinemaID })</h4>
+    </div>
+    <div class="col-md-1">
+        <h4>@Html.ActionLink("Delete", "Delete", new { id = Model.CinemaID })</h4>
+    </div>
+    <div class="col-md-9">
         <h4>@Html.ActionLink("Back to Cinemas", "Index")  </h4>
     </div>
 </div>
+
+   
+    
+
+    
 
 

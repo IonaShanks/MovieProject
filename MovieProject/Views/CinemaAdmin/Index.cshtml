@@ -6,9 +6,9 @@
 
 <h2>Cinema Details</h2>
 
+<p>@Html.ActionLink("Add New Cinema", "Add")</p>
 
-
-@using (Html.BeginForm("Index", "Cinema", FormMethod.Get))
+@using (Html.BeginForm("Index", "CinemaAdmin", FormMethod.Get))
 {
     <div class="row">
         <div class="input-group">
@@ -31,10 +31,10 @@
 
             <table class="table table-striped table-bordered table-hover">
                 <tr class="success text-nowrap">
-                   
+                    
                     <th>
                         @Html.DisplayNameFor(model => model.Name)
-                    </th>
+                    </th>                 
                     <th class="text-nowrap">
                         @Html.DisplayNameFor(model => model.PhoneNumber)
                     </th>
@@ -47,8 +47,8 @@
                     <th>
                         Showing
                     </th>
-                   
-                    
+                    <th></th>
+                    <th></th>
                 </tr>
 
                 @foreach (var item in Model)
@@ -70,9 +70,12 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Movies.Title)
                         </td>
-                 
-                     
-                        
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.CinemaID })
+                        </td>                      
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.CinemaID })
+                        </td>
                     </tr>
 
                 }

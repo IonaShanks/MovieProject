@@ -63,16 +63,21 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Add" class="btn btn-default" />
-            </div>
-        </div>
+      
     </div>
 }
+<div class="row">
 
-<div>
-    @Html.ActionLink("Back to Cinemas", "Index")
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-1">
+
+            <input type="submit" value="Add" class="btn btn-default" />
+        </div>
+
+        <div class="col-md-9">
+            <h4>@Html.ActionLink("Cancel", "Index")  </h4>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
