@@ -2,10 +2,11 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+<h2 class="text-center">Welcome to ISZN Movies</h2>
 <div class="jumbotron">
 
-    @*<img src="https://movieprojectstorage.blob.core.windows.net/pictures/cinema-popcorn-e-biglietti.jpg" alt="Cinema" style="width:75%;height:75%;">*@
+    <br />
+
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -21,10 +22,10 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
+
             <div class="item active">
                 <img src="https://movieprojectstorage.blob.core.windows.net/picture/cinema-popcorn-e-biglietti.jpg" alt="Cinema" style="height:49.125em">
                 <div class="carousel-caption">
-
                     <p>Want to see a movie? Looking for something immediately after work, or planning something for the whole family on a Bank Holiday?</p>
                 </div>
             </div>
@@ -53,8 +54,6 @@
                 <a href="/Movie/Details/EXO"><img src="https://movieprojectstorage.blob.core.windows.net/picture/EX.jpg" alt="The Exorcist" style="height:49.125em"></a>
             </div>
 
-            
-
         </div>
 
         <!-- Left and right controls -->
@@ -67,26 +66,18 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-
-
-    <h1>Movie Project</h1>
-
-    @*<p class="lead">IT Tallaght EAD joint project for CA2. Lecturer Gary Clynch. HDip in Science in Computing TA_KCOMP_HD</p>
-    <p class="lead">Goal: to Add a web service and API to browse local cinema showings by filter or search terms backed by an SQL database.</p>*@
-   
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <h2>Cinema</h2>
-        <p>Details about the cinemas</p>
-        <p>@Html.ActionLink("Details", "Index", "Cinema")</p>
-        @*<p><a class="btn btn-default" href="http://snismoviemvc.azurewebsites.net/cinema">Details &raquo;</a></p>*@
-    </div>
-    <div class="col-md-6">
-        <h2>Movie </h2>
-        <p>Details about the movies.</p>
-        <p>@Html.ActionLink("Details", "Index", "Movie")</p>
+    <br/>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-6">
+            <h2>@Html.ActionLink("Cinemas", "Index", "Cinema")</h2>
+            <p>Details about the cinemas.</p>
+        </div>
+        <div class="col-md-5">
+            <h2>@Html.ActionLink("Movies", "Index", "Movie") </h2>
+            <p>Details about the movies.</p>
+        </div>
     </div>
 </div>
+
+
 
