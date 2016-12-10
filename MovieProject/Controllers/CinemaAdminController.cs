@@ -12,9 +12,8 @@ namespace MovieProject.Controllers
     {
         private MovieContext db = new MovieContext();
         // GET: CinemaAdmin
-        public ActionResult Index(string title)
+        public ActionResult Index(string searchString)
         {
-            string searchString = title;
             var cinemas = db.Cinemas.Include(c => c.Movies);
 
             if (!String.IsNullOrEmpty(searchString))
