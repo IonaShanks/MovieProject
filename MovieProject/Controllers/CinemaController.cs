@@ -13,9 +13,8 @@ namespace MovieMVC.Controllers
         private MovieContext db = new MovieContext();
 
         // GET: Cinema
-        public ActionResult Index(string title)
-        {
-            string searchString = title;
+        public ActionResult Index(string searchString)
+        {            
             var cinemas = db.Cinemas.Include(c => c.Movies);
 
             if (!String.IsNullOrEmpty(searchString))
