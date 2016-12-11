@@ -56,25 +56,24 @@
                 @Html.ValidationMessageFor(model => model.MovieID, "", new { @class = "text-danger" })
             </div>
         </div>
+    </div>
+    <div class="row">
 
-        
+        <div class="form-actions no-color">
+            <div class="col-md-offset-2 col-md-1">
+
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+
+            <div class="col-md-9">
+                <h4>@Html.ActionLink("Cancel", "Index")  </h4>
+            </div>
+        </div>
     </div>
 }
 
 
-<div class="row">
-    
-    <div class="form-actions no-color">
-        <div class="col-md-offset-2 col-md-1">
 
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-
-        <div class="col-md-9">
-            <h4>@Html.ActionLink("Cancel", "Index")  </h4>
-        </div>
-    </div>
-</div>
 
 
 @section Scripts {
