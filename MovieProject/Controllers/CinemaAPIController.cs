@@ -11,14 +11,14 @@ namespace MovieProject.Controllers
     {
         private MovieContext db = new MovieContext();
 
-        // GET: api/Cinemas
+        // GET: Cinemas
         [Route("Cinemas/")]
         public IHttpActionResult GetAllCinemas()
         {
             return Ok(db.Cinemas.OrderBy(l => l.Name).ToList());       // 200 OK, listing ordered alphabetically 
         }
 
-        // GET: api/Cinemas/CinemaID
+        // GET: Cinemas/CinemaID
         [Route("Cinemas/{id}")]
         [ResponseType(typeof(Cinema))]
         public IHttpActionResult GetCinema(string id)
@@ -32,7 +32,7 @@ namespace MovieProject.Controllers
             return Ok(cinema);
         }
 
-        // GET: api/Cinemas/Search/CinemaID
+        // GET: Cinemas/Search/CinemaID
         [Route("Cinemas/Search/{id}")]
         public IHttpActionResult GetCinemasBySearch(string id)
         {

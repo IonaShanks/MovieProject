@@ -14,12 +14,13 @@ namespace MovieProject.Controllers
         private MovieContext db = new MovieContext();
 
         [Route("Movies/")]
-        // GET: api/Movies
+        // GET: Movies
         public IHttpActionResult GetMovies()
         {
             return Ok(db.Movies.OrderBy(m => m.MovieID).ToList());
         }
 
+        // GET: Movies/MovieID
         [Route("Movies/{id}")]
         [ResponseType(typeof(Movie))]
         public IHttpActionResult GetMovie(string id)
@@ -32,7 +33,7 @@ namespace MovieProject.Controllers
             return Ok(movie);
         }
 
-        // GET: api/Movies/TitleSearch/Movieid
+        // GET: Movies/TitleSearch/Movieid
 
         [Route("Movies/TitleSearch/{id}")]
         public IHttpActionResult GetMoviesBySearchTerm(string id)
@@ -47,7 +48,7 @@ namespace MovieProject.Controllers
         }
 
 
-        // GET: api/Movies/Genre/Movieid
+        // GET: Movies/Genre/Movieid
 
         [Route("Movies/Genre/{id}")]
         public IHttpActionResult GetMoviesByGenre(string id)
@@ -61,7 +62,7 @@ namespace MovieProject.Controllers
             return Ok(gens);
         }
 
-        // GET: api/Movies/Screenings/Movieid
+        // GET: Movies/Screenings/Movieid
         [Route("Movies/Screenings/{id}")]
         public IHttpActionResult GetMovieScreenings(string id)
         {
