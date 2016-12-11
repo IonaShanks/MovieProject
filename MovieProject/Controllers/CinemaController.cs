@@ -13,8 +13,10 @@ namespace MovieMVC.Controllers
         private MovieContext db = new MovieContext();
 
         // GET: Cinema
+        //Shows details on all cinemas in the database 
+        //Includes a filter search for cinema names that include the search string, if empty displays all
         public ActionResult Index(string searchString)
-        {            
+        {
             var cinemas = db.Cinemas.Include(c => c.Movies);
 
             if (!String.IsNullOrEmpty(searchString))
@@ -24,13 +26,9 @@ namespace MovieMVC.Controllers
 
             return View(cinemas);
         }
-        //public async Task<ActionResult> Index()
-        //{
-        //    var cinemas = db.Cinemas.Include(c => c.Movies);
-        //    return View(await cinemas.ToListAsync());
-        //}
 
-        // GET: Cinema/Details/5
+        // GET: Cinema/Details/CinemaID
+        //Shows details on a specific cinema
         public async Task<ActionResult> Details(string id)
         {
             if (id == null)
@@ -45,8 +43,6 @@ namespace MovieMVC.Controllers
             return View(cinema);
         }
 
-      
-        
 
         protected override void Dispose(bool disposing)
         {

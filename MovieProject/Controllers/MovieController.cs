@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Net;
 using System.Web.Mvc;
 using System.Linq;
@@ -13,7 +12,10 @@ namespace MovieMVC.Controllers
     {
         private MovieContext db = new MovieContext();
 
-        // GET: Movie, filter by genre and title
+        // GET: Movie
+        //Shows details on all movies in the database 
+        //Includes a filter search for movie names that include the search string, if empty displays all
+        //Includes a genre filter which filters by genre, both filters can work together
         public ActionResult Index(string movieGenre, string searchString)
         {
             var GenreLst = new List<string>();
@@ -40,7 +42,8 @@ namespace MovieMVC.Controllers
 
             return View(movies);
         }
-        // GET: Movie/Details/5
+
+        // GET: Movie/Details/MovieID
         public async Task<ActionResult> Details(string id)
         {
             if (id == null)
@@ -54,9 +57,6 @@ namespace MovieMVC.Controllers
             }
             return View(Movie);
         }
-
-        // GET: Movie/Add
-       
 
         protected override void Dispose(bool disposing)
         {

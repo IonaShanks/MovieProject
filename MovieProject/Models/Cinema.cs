@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
 
 
 namespace MovieModel
@@ -18,7 +17,7 @@ namespace MovieModel
         public String TicketPrice { get; set; }
         
 
-
+        //Forign key from the Movie table
         public String MovieID { get; set; }
         public virtual Movie Movies { get; set; }
     }

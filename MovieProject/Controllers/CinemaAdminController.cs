@@ -12,6 +12,8 @@ namespace MovieProject.Controllers
     {
         private MovieContext db = new MovieContext();
         // GET: CinemaAdmin
+        //Shows details on all cinemas in the database 
+        //Includes a filter search for cinema names that include the search string, if empty displays all
         public ActionResult Index(string searchString)
         {
             var cinemas = db.Cinemas.Include(c => c.Movies);
@@ -23,6 +25,9 @@ namespace MovieProject.Controllers
 
             return View(cinemas);
         }
+
+        //GET: CinemaAdmin/Details/CinemaID
+        //Shows details on a specific Cinema
         public async Task<ActionResult> Details(string id)
         {
             if (id == null)
@@ -37,6 +42,7 @@ namespace MovieProject.Controllers
             return View(cinema);
         }
 
+        //POST: CinemaAdmin/Add
         public ActionResult Add()
         {
             ViewBag.MovieID = new SelectList(db.Movies, "MovieID", "Title");
@@ -61,7 +67,7 @@ namespace MovieProject.Controllers
             return View(cinema);
         }
 
-        // GET: CinemaAdmin/Edit/5
+        // GET: CinemaAdmin/Edit/CinemaID
         public async Task<ActionResult> Edit(string id)
         {
             if (id == null)
@@ -77,7 +83,7 @@ namespace MovieProject.Controllers
             return View(cinema);
         }
 
-        // POST: CinemaAdmin/Edit/5
+        // POST: CinemaAdmin/Edit/CinemaID
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -94,7 +100,7 @@ namespace MovieProject.Controllers
             return View(cinema);
         }
 
-        // GET: CinemaAdmin/Delete/5
+        // GET: CinemaAdmin/Delete/CinemaID
         public async Task<ActionResult> Delete(string id)
         {
             if (id == null)
@@ -109,7 +115,7 @@ namespace MovieProject.Controllers
             return View(cinema);
         }
 
-        // POST: CinemaAdmin/Delete/5
+        // POST: CinemaAdmin/Delete/CinemaID
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(string id)

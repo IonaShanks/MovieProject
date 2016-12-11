@@ -13,7 +13,10 @@ namespace MovieProject.Controllers
     {
         private MovieContext db = new MovieContext();
 
-        // GET: Movie, filter by genre and title
+        // GET: Movie
+        //Shows details on all movies in the database 
+        //Includes a filter search for movie names that include the search string, if empty displays all
+        //Includes a genre filter which filters by genre, both filters can work together
         public ActionResult Index(string movieGenre, string searchString)
         {
             var GenreLst = new List<string>();
@@ -40,7 +43,7 @@ namespace MovieProject.Controllers
 
             return View(movies);
         }
-        // GET: Movie/Details/5
+        // GET: Movie/Details/MovieID
         public async Task<ActionResult> Details(string id)
         {
             if (id == null)
@@ -78,7 +81,7 @@ namespace MovieProject.Controllers
             return View(Movie);
         }
 
-        // GET: Movie/Edit/5
+        // GET: Movie/Edit/MovieID
         public async Task<ActionResult> Edit(string id)
         {
             if (id == null)
@@ -93,7 +96,7 @@ namespace MovieProject.Controllers
             return View(Movie);
         }
 
-        // POST: Movie/Edit/5
+        // POST: Movie/Edit/MovieID
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -109,7 +112,7 @@ namespace MovieProject.Controllers
             return View(Movie);
         }
 
-        // GET: Movie/Delete/5
+        // GET: Movie/Delete/MovieID
         public async Task<ActionResult> Delete(string id)
         {
             if (id == null)
@@ -124,7 +127,7 @@ namespace MovieProject.Controllers
             return View(Movie);
         }
 
-        // POST: Movie/Delete/5
+        // POST: Movie/Delete/MovieID
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(string id)

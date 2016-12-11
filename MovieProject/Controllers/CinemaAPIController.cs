@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MovieModel;
@@ -21,7 +18,7 @@ namespace prototypeMovieAPI.Controllers
             return Ok(db.Cinemas.OrderBy(l => l.Name).ToList());       // 200 OK, listing ordered alphabetically 
         }
 
-        // GET: api/Cinemas/5
+        // GET: api/Cinemas/CinemaID
         [Route("Cinemas/{id}")]
         [ResponseType(typeof(Cinema))]
         public IHttpActionResult GetCinema(string id)
@@ -35,7 +32,7 @@ namespace prototypeMovieAPI.Controllers
             return Ok(cinema);
         }
 
-        // GET: api/Cinemas/Search/5
+        // GET: api/Cinemas/Search/CinemaID
         [Route("Cinemas/Search/{id}")]
         public IHttpActionResult GetCinemasBySearch(string id)
         {
@@ -47,88 +44,6 @@ namespace prototypeMovieAPI.Controllers
             }
             return Ok(finds.ToList());
         }
-
-        //// PUT: api/Cinemas/5
-        //[Route("Cinemas/{id}")]
-        //[ResponseType(typeof(void))]
-        //public IHttpActionResult PutCinema(string id, Cinema cinema)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    if (id != cinema.CinemaID)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    db.Entry(cinema).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        db.SaveChanges();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!CinemaExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return StatusCode(HttpStatusCode.NoContent);
-        //}
-
-        //// POST: api/Cinemas
-        //[ResponseType(typeof(Cinema))]
-        //public IHttpActionResult PostCinema(Cinema cinema)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    db.Cinemas.Add(cinema);
-
-        //    try
-        //    {
-        //        db.SaveChanges();
-        //    }
-        //    catch (DbUpdateException)
-        //    {
-        //        if (CinemaExists(cinema.CinemaID))
-        //        {
-        //            return Conflict();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return CreatedAtRoute("DefaultApi", new { id = cinema.CinemaID }, cinema);
-        //}
-
-        //// DELETE: api/Cinemas/5
-        //[ResponseType(typeof(Cinema))]
-        //public IHttpActionResult DeleteCinema(string id)
-        //{
-        //    Cinema cinema = db.Cinemas.Find(id);
-        //    if (cinema == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    db.Cinemas.Remove(cinema);
-        //    db.SaveChanges();
-
-        //    return Ok(cinema);
-        //}
 
         protected override void Dispose(bool disposing)
         {
