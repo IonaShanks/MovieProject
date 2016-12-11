@@ -6,7 +6,7 @@ using MovieModel;
 using System;
 using System.Linq;
 
-namespace MovieMVC.Controllers
+namespace MovieProject.Controllers
 {
     public class CinemaController : Controller
     {

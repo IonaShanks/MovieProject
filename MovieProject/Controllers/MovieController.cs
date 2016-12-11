@@ -6,7 +6,7 @@ using MovieModel;
 using System;
 using System.Collections.Generic;
 
-namespace MovieMVC.Controllers
+namespace MovieProject.Controllers
 {
     public class MovieController : Controller
     {
@@ -20,15 +20,12 @@ namespace MovieMVC.Controllers
         {
             var GenreLst = new List<string>();
 
-            var GenreQry = from d in db.Movies
-                           orderby d.Genre.ToString()
-                           select d.Genre.ToString();
-
+            var GenreQry = db.Movies.Select(g => g.Genre.ToString());
+           
             GenreLst.AddRange(GenreQry.Distinct());
             ViewBag.movieGenre = new SelectList(GenreLst);
 
-            var movies = from m in db.Movies
-                         select m;
+            IQueryable<Movie> movies = db.Movies;
 
             if (!String.IsNullOrEmpty(searchString))
             {

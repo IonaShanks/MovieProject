@@ -5,9 +5,9 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using MovieModel;
 
-namespace prototypeMovieAPI.Controllers
+namespace MovieProject.Controllers
 {
-    public class CinemasController : ApiController
+    public class CinemaAPIController : ApiController
     {
         private MovieContext db = new MovieContext();
 
