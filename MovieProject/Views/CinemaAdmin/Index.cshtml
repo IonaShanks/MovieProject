@@ -34,15 +34,15 @@
                     
                     <th>
                         @Html.DisplayNameFor(model => model.Name)
-                    </th>                 
+                    </th>
                     <th class="text-nowrap">
                         @Html.DisplayNameFor(model => model.PhoneNumber)
                     </th>
-                    <th class="text-nowrap">
-                        @Html.DisplayNameFor(model => model.TicketPrice)
-                    </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Website)
+                    </th>
+                    <th class="text-nowrap">
+                        @Html.DisplayNameFor(model => model.TicketPrice)
                     </th>
                     <th>
                         Showing
@@ -55,20 +55,20 @@
                 {
                     <tr>
                         
-                        <td>
+                         <td>
                             @Html.ActionLink(item.Name, "Details", new { id = item.CinemaID })
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.PhoneNumber)
                         </td>
                         <td>
-                           £ @Html.DisplayFor(modelItem => item.TicketPrice)
-                        </td>
-                        <td>
                             @Html.DisplayFor(modelItem => item.Website, new { target = "_blank" })
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Movies.Title)
+                           £ @Html.DisplayFor(modelItem => item.TicketPrice)
+                        </td>
+                        <td>
+                            @Html.ActionLink(item.Movies.Title, "Details", "Movie", new { id = item.MovieID }, new { target = "_blank" })                            
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.CinemaID })
